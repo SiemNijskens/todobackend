@@ -11,6 +11,8 @@ public record TaskDTO(
         Long id,
         @NotBlank(message = "Task is required")
         String task,
+        @NotBlank(message = "Body is required")
+        String body,
         Status status,
         Color color
 ) {
@@ -19,6 +21,7 @@ public record TaskDTO(
         return new TaskDTO(
                 task.getId(),
                 task.getTask(),
+                task.getBody(),
                 task.getStatus(),
                 task.getColor()
         );

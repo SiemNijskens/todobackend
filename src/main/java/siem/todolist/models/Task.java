@@ -1,8 +1,6 @@
 package siem.todolist.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Task {
@@ -13,15 +11,23 @@ public class Task {
 
     private String task;
 
+    private String body;
+
+    private String quote;
+
+    @Enumerated(value= EnumType.ORDINAL)
     private Status status;
 
+    @Enumerated(value= EnumType.ORDINAL)
     private Color color;
 
-    public Task(Long id, String task, Status status, Color color) {
+    public Task(Long id, String task, String body, Status status, Color color, String quote) {
         this.id = id;
         this.task = task;
+        this.body = body;
         this.status = status;
         this.color = color;
+        this.quote = quote;
     }
 
     public Task() {
@@ -39,6 +45,14 @@ public class Task {
         this.task = task;
     }
 
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
     public Status getStatus() {
         return status;
     }
@@ -53,6 +67,15 @@ public class Task {
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+
+    public String getQuote() {
+        return Quote;
+    }
+
+    public void setQuote(String quote) {
+        Quote = quote;
     }
 }
 

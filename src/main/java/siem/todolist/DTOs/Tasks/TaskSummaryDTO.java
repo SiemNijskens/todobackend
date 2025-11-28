@@ -7,6 +7,7 @@ import siem.todolist.models.Task;
 public record TaskSummaryDTO (
         Long id,
         String task,
+        String body,
         Status status,
         Color color
 ){
@@ -14,6 +15,7 @@ public record TaskSummaryDTO (
         return new TaskSummaryDTO(
                 task.getId(),
                 task.getTask(),
+                task.getBody(),
                 task.getStatus(),
                 task.getColor()
         );

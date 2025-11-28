@@ -8,6 +8,7 @@ import siem.todolist.models.Task;
 public record TaskUpdateDTO(
         @NotBlank(message = "Task is required")
         String task,
+        String body,
         Status status,
         Color color
 
@@ -15,6 +16,7 @@ public record TaskUpdateDTO(
 
     public void updateEntity(Task task) {
         task.setTask(this.task);
+        task.setBody(this.body);
         task.setStatus(this.status);
         task.setColor(this.color);
     }

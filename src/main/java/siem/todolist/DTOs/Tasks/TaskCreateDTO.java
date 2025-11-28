@@ -7,12 +7,14 @@ import siem.todolist.models.Task;
 
 public record TaskCreateDTO(
         @NotBlank(message = "Task is required")
-        String task
+        String task,
+        String body
 ) {
 
     public Task toEntity() {
         Task task = new Task();
         task.setTask(this.task);
+        task.setBody(this.body);
         task.setStatus(Status.PENDING);
         task.setColor(Color.NONE);
         return task;
